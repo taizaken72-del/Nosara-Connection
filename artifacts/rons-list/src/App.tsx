@@ -29,27 +29,22 @@ function Home() {
     >
       {/* SECTION 1: HERO */}
       <div className="relative min-h-[100dvh] w-full overflow-hidden">
-        {/* Beach image fading in from the right */}
+        {/* Watercolor beach background */}
         <div
           className="absolute inset-0 z-0"
           style={{
-            backgroundImage: 'url("/hero-bg.png")',
+            backgroundImage: 'url("/hero-bg-watercolor.png")',
             backgroundSize: "cover",
-            backgroundPosition: "right center",
+            backgroundPosition: "center center",
             backgroundRepeat: "no-repeat",
-            maskImage:
-              "linear-gradient(to right, transparent 0%, transparent 30%, rgba(0,0,0,0.15) 45%, rgba(0,0,0,0.5) 60%, rgba(0,0,0,0.85) 80%, black 100%)",
-            WebkitMaskImage:
-              "linear-gradient(to right, transparent 0%, transparent 30%, rgba(0,0,0,0.15) 45%, rgba(0,0,0,0.5) 60%, rgba(0,0,0,0.85) 80%, black 100%)",
           }}
         />
 
-        {/* Soft cream wash over everything to keep it light and airy */}
+        {/* Very subtle cream wash to lift text readability without hiding the art */}
         <div
           className="absolute inset-0 z-[1]"
           style={{
-            background:
-              "linear-gradient(to right, #F2EBE0 0%, #F2EBE0 25%, rgba(242,235,224,0.85) 45%, rgba(242,235,224,0.4) 65%, rgba(242,235,224,0.0) 100%)",
+            background: "rgba(242, 235, 224, 0.25)",
           }}
         />
 
