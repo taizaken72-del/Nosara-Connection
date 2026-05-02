@@ -108,14 +108,14 @@ function ContactForm() {
         </div>
       </div>
       <div className="flex flex-col gap-2">
-        <label className="font-sans text-sm font-medium text-[#1A3320] tracking-wide">Phone Number</label>
+        <label className="font-sans text-sm font-medium text-[#1A3320] tracking-wide">WhatsApp Phone Number</label>
         <input
           data-testid="input-phone"
           type="tel"
           name="phone"
           value={form.phone}
           onChange={handleChange}
-          placeholder="+1 (000) 000-0000"
+          placeholder="+506"
           style={inputStyle}
         />
       </div>
