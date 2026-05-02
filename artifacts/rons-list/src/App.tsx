@@ -74,7 +74,7 @@ function Home() {
                 fontSize: "clamp(2rem, 5vw, 3.6rem)",
               }}
             >
-              Most Costly Mistakes in Nosara Start With Hiring the Wrong People
+              Hiring the Wrong Builders Is the Most Expensive Mistake in Nosara
             </h1>
 
             {/* Gold divider */}
@@ -93,15 +93,15 @@ function Home() {
               className="font-sans font-light leading-relaxed mb-4 max-w-md"
               style={{ color: "#2E2A24", fontSize: "clamp(0.95rem, 1.8vw, 1.1rem)" }}
             >
-              The right professionals aren't easy to find—and the wrong ones cost you time, money, and stress.
+              The wrong professionals lead to delays, budget overruns, and serious stress.
             </p>
 
             {/* Supporting text */}
             <p
-              className="font-sans font-light leading-relaxed mb-10 max-w-sm"
+              className="font-sans font-light leading-relaxed mb-10 max-w-lg"
               style={{ color: "#2E2A24", fontSize: "clamp(0.95rem, 1.8vw, 1.1rem)" }}
             >
-              Ron's List connects you with trusted, vetted professionals in Nosara.
+              Ron's List connects you with trusted professionals in Nosara—backed by real experiences from the local community.
             </p>
 
             {/* CTA Button */}
@@ -127,7 +127,7 @@ function Home() {
               className="mt-4 font-sans font-light"
               style={{ color: "#7A7167", fontSize: "0.82rem" }}
             >
-              No cost. No obligation. Just people you can trust.
+              <strong style={{ fontWeight: 600, color: "#5A5248" }}>No cost.</strong> No obligation. Just people you can trust.
             </p>
           </motion.div>
         </div>
