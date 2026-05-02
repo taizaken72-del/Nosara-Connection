@@ -39,6 +39,123 @@ function RotatingWord() {
 
 const queryClient = new QueryClient();
 
+const inputStyle: React.CSSProperties = {
+  width: "100%",
+  padding: "14px 16px",
+  backgroundColor: "#F8F3EC",
+  border: "1px solid #D5CABB",
+  borderRadius: "6px",
+  fontSize: "1rem",
+  color: "#2E2A24",
+  fontFamily: "Inter, sans-serif",
+  outline: "none",
+  transition: "border-color 0.2s",
+};
+
+function ContactForm() {
+  const [form, setForm] = useState({ name: "", email: "", phone: "", needs: "" });
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitted(true);
+  };
+
+  if (submitted) {
+    return (
+      <div className="text-center py-16">
+        <div className="w-12 h-[2px] bg-[#B8924A] mx-auto mb-8" />
+        <h3 className="font-serif text-2xl text-[#1A3320] mb-4">Thank you.</h3>
+        <p className="font-sans font-light text-lg text-[#2E2A24]">
+          We'll be in touch with the right people for your project.
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div className="flex flex-col gap-2">
+          <label className="font-sans text-sm font-medium text-[#1A3320] tracking-wide">Name</label>
+          <input
+            data-testid="input-name"
+            type="text"
+            name="name"
+            value={form.name}
+            onChange={handleChange}
+            placeholder="Your name"
+            required
+            style={inputStyle}
+          />
+        </div>
+        <div className="flex flex-col gap-2">
+          <label className="font-sans text-sm font-medium text-[#1A3320] tracking-wide">Email</label>
+          <input
+            data-testid="input-email"
+            type="email"
+            name="email"
+            value={form.email}
+            onChange={handleChange}
+            placeholder="your@email.com"
+            required
+            style={inputStyle}
+          />
+        </div>
+      </div>
+      <div className="flex flex-col gap-2">
+        <label className="font-sans text-sm font-medium text-[#1A3320] tracking-wide">Phone Number</label>
+        <input
+          data-testid="input-phone"
+          type="tel"
+          name="phone"
+          value={form.phone}
+          onChange={handleChange}
+          placeholder="+1 (000) 000-0000"
+          style={inputStyle}
+        />
+      </div>
+      <div className="flex flex-col gap-2">
+        <label className="font-sans text-sm font-medium text-[#1A3320] tracking-wide">What do you need from us?</label>
+        <textarea
+          data-testid="input-needs"
+          name="needs"
+          value={form.needs}
+          onChange={handleChange}
+          placeholder="Tell us about your project or what kind of professional you're looking for…"
+          required
+          rows={5}
+          style={{ ...inputStyle, resize: "vertical" }}
+        />
+      </div>
+      <button
+        data-testid="button-submit"
+        type="submit"
+        className="font-sans font-medium tracking-wide transition-all duration-300 hover:opacity-90 mt-2"
+        style={{
+          backgroundColor: "#1A3320",
+          color: "#FFFFFF",
+          borderRadius: "8px",
+          padding: "16px 36px",
+          fontSize: "1rem",
+          border: "none",
+          cursor: "pointer",
+          letterSpacing: "0.02em",
+        }}
+      >
+        Get Connected to Trusted Professionals
+      </button>
+      <p className="text-center font-sans font-light text-[#7A7167] text-sm">
+        <strong style={{ fontWeight: 600, color: "#5A5248" }}>No cost.</strong> No obligation. Just people you can trust.
+      </p>
+    </form>
+  );
+}
+
 const FadeIn = ({ children, delay = 0 }: { children: React.ReactNode, delay?: number }) => (
   <motion.div
     initial={{ opacity: 0, y: 24 }}
@@ -409,6 +526,24 @@ function Home() {
             <p className="mt-6 font-sans font-light text-[#7A7167] text-sm">
               No cost. No obligation. Just the right people.
             </p>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* SECTION 9: Contact Form */}
+      <section className="py-24 px-6 bg-[#EDE4D3]" data-testid="section-contact">
+        <div className="max-w-2xl mx-auto">
+          <FadeIn>
+            <div className="text-center mb-12">
+              <h2 className="font-serif text-3xl md:text-4xl text-[#1A3320] mb-4">
+                Tell Us What You Need
+              </h2>
+              <div className="w-12 h-[2px] bg-[#B8924A] mx-auto mb-6" />
+              <p className="font-sans font-light text-lg text-[#2E2A24]">
+                We'll connect you with the right people — no searching required.
+              </p>
+            </div>
+            <ContactForm />
           </FadeIn>
         </div>
       </section>
