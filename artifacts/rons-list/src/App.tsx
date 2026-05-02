@@ -7,127 +7,367 @@ import { motion } from "framer-motion";
 
 const queryClient = new QueryClient();
 
+const FadeIn = ({ children, delay = 0 }: { children: React.ReactNode, delay?: number }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 24 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, margin: "-100px" }}
+    transition={{ duration: 0.8, ease: "easeOut", delay }}
+  >
+    {children}
+  </motion.div>
+);
+
 function Home() {
   return (
     <div
-      className="relative min-h-[100dvh] w-full overflow-hidden"
+      className="relative min-h-[100dvh] w-full overflow-x-hidden font-sans"
       style={{
         backgroundColor: "#F2EBE0",
+        color: "#2E2A24",
       }}
     >
-      {/* Beach image fading in from the right */}
-      <div
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: 'url("/hero-bg.png")',
-          backgroundSize: "cover",
-          backgroundPosition: "right center",
-          backgroundRepeat: "no-repeat",
-          maskImage:
-            "linear-gradient(to right, transparent 0%, transparent 30%, rgba(0,0,0,0.15) 45%, rgba(0,0,0,0.5) 60%, rgba(0,0,0,0.85) 80%, black 100%)",
-          WebkitMaskImage:
-            "linear-gradient(to right, transparent 0%, transparent 30%, rgba(0,0,0,0.15) 45%, rgba(0,0,0,0.5) 60%, rgba(0,0,0,0.85) 80%, black 100%)",
-        }}
-      />
-
-      {/* Soft cream wash over everything to keep it light and airy */}
-      <div
-        className="absolute inset-0 z-[1]"
-        style={{
-          background:
-            "linear-gradient(to right, #F2EBE0 0%, #F2EBE0 25%, rgba(242,235,224,0.85) 45%, rgba(242,235,224,0.4) 65%, rgba(242,235,224,0.0) 100%)",
-        }}
-      />
-
-      {/* Logo — top left */}
-      <div className="relative z-10 px-6 pt-6 md:px-10 md:pt-8">
-        <img
-          src="/rons-list-logo-transparent.png"
-          alt="Ron's List"
-          data-testid="img-logo"
-          className="w-[117px] md:w-[143px] h-auto object-contain"
+      {/* SECTION 1: HERO */}
+      <div className="relative min-h-[100dvh] w-full overflow-hidden">
+        {/* Beach image fading in from the right */}
+        <div
+          className="absolute inset-0 z-0"
+          style={{
+            backgroundImage: 'url("/hero-bg.png")',
+            backgroundSize: "cover",
+            backgroundPosition: "right center",
+            backgroundRepeat: "no-repeat",
+            maskImage:
+              "linear-gradient(to right, transparent 0%, transparent 30%, rgba(0,0,0,0.15) 45%, rgba(0,0,0,0.5) 60%, rgba(0,0,0,0.85) 80%, black 100%)",
+            WebkitMaskImage:
+              "linear-gradient(to right, transparent 0%, transparent 30%, rgba(0,0,0,0.15) 45%, rgba(0,0,0,0.5) 60%, rgba(0,0,0,0.85) 80%, black 100%)",
+          }}
         />
-      </div>
 
-      {/* Main content — centered */}
-      <div className="relative z-10 flex flex-col items-center justify-center min-h-[calc(100dvh-80px)] px-6 pb-12 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, ease: "easeOut" }}
-          className="w-full max-w-2xl flex flex-col items-center"
-        >
-          {/* Headline */}
-          <h1
-            className="font-serif font-semibold leading-[1.15] mb-5"
-            style={{
-              color: "#1A3320",
-              fontSize: "clamp(2rem, 5vw, 3.6rem)",
-            }}
-          >
-            Most Costly Mistakes in Nosara Start With Hiring the Wrong People
-          </h1>
+        {/* Soft cream wash over everything to keep it light and airy */}
+        <div
+          className="absolute inset-0 z-[1]"
+          style={{
+            background:
+              "linear-gradient(to right, #F2EBE0 0%, #F2EBE0 25%, rgba(242,235,224,0.85) 45%, rgba(242,235,224,0.4) 65%, rgba(242,235,224,0.0) 100%)",
+          }}
+        />
 
-          {/* Gold divider */}
-          <div
-            className="mb-6"
-            style={{
-              width: "48px",
-              height: "2px",
-              backgroundColor: "#B8924A",
-              borderRadius: "1px",
-            }}
+        {/* Logo — top left */}
+        <div className="relative z-10 px-6 pt-6 md:px-10 md:pt-8">
+          <img
+            src="/rons-list-logo-transparent.png"
+            alt="Ron's List"
+            data-testid="img-logo"
+            className="w-[117px] md:w-[143px] h-auto object-contain"
           />
+        </div>
 
-          {/* Subheadline */}
-          <p
-            className="font-sans font-light leading-relaxed mb-4 max-w-md"
-            style={{ color: "#2E2A24", fontSize: "clamp(0.95rem, 1.8vw, 1.1rem)" }}
+        {/* Main content — centered */}
+        <div className="relative z-10 flex flex-col items-center justify-center min-h-[calc(100dvh-80px)] px-6 pb-12 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, ease: "easeOut" }}
+            className="w-full max-w-2xl flex flex-col items-center"
           >
-            The right professionals aren't easy to find—and the wrong ones cost you time, money, and stress.
-          </p>
+            {/* Headline */}
+            <h1
+              className="font-serif font-semibold leading-[1.15] mb-5"
+              style={{
+                color: "#1A3320",
+                fontSize: "clamp(2rem, 5vw, 3.6rem)",
+              }}
+            >
+              Most Costly Mistakes in Nosara Start With Hiring the Wrong People
+            </h1>
 
-          {/* Supporting text */}
-          <p
-            className="font-sans font-light leading-relaxed mb-10 max-w-sm"
-            style={{ color: "#2E2A24", fontSize: "clamp(0.95rem, 1.8vw, 1.1rem)" }}
-          >
-            Ron's List connects you with trusted, vetted professionals in Nosara.
-          </p>
+            {/* Gold divider */}
+            <div
+              className="mb-6"
+              style={{
+                width: "48px",
+                height: "2px",
+                backgroundColor: "#B8924A",
+                borderRadius: "1px",
+              }}
+            />
 
-          {/* CTA Button */}
-          <button
-            data-testid="button-cta"
-            className="w-full max-w-md font-sans font-medium tracking-wide transition-all duration-300"
-            style={{
-              backgroundColor: "#1A3320",
-              color: "#FFFFFF",
-              borderRadius: "8px",
-              padding: "18px 36px",
-              fontSize: "clamp(0.9rem, 1.6vw, 1.05rem)",
-              border: "none",
-              cursor: "pointer",
-              letterSpacing: "0.02em",
-            }}
-            onMouseEnter={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.backgroundColor = "#244528";
-            }}
-            onMouseLeave={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.backgroundColor = "#1A3320";
-            }}
-          >
-            Get Connected to Trusted Professionals
-          </button>
+            {/* Subheadline */}
+            <p
+              className="font-sans font-light leading-relaxed mb-4 max-w-md"
+              style={{ color: "#2E2A24", fontSize: "clamp(0.95rem, 1.8vw, 1.1rem)" }}
+            >
+              The right professionals aren't easy to find—and the wrong ones cost you time, money, and stress.
+            </p>
 
-          {/* Trust note */}
-          <p
-            className="mt-4 font-sans font-light"
-            style={{ color: "#7A7167", fontSize: "0.82rem" }}
-          >
-            No cost. No obligation. Just people you can trust.
-          </p>
-        </motion.div>
+            {/* Supporting text */}
+            <p
+              className="font-sans font-light leading-relaxed mb-10 max-w-sm"
+              style={{ color: "#2E2A24", fontSize: "clamp(0.95rem, 1.8vw, 1.1rem)" }}
+            >
+              Ron's List connects you with trusted, vetted professionals in Nosara.
+            </p>
+
+            {/* CTA Button */}
+            <button
+              data-testid="button-cta"
+              className="w-full max-w-md font-sans font-medium tracking-wide transition-all duration-300 hover:opacity-90"
+              style={{
+                backgroundColor: "#1A3320",
+                color: "#FFFFFF",
+                borderRadius: "8px",
+                padding: "18px 36px",
+                fontSize: "clamp(0.9rem, 1.6vw, 1.05rem)",
+                border: "none",
+                cursor: "pointer",
+                letterSpacing: "0.02em",
+              }}
+            >
+              Get Connected to Trusted Professionals
+            </button>
+
+            {/* Trust note */}
+            <p
+              className="mt-4 font-sans font-light"
+              style={{ color: "#7A7167", fontSize: "0.82rem" }}
+            >
+              No cost. No obligation. Just people you can trust.
+            </p>
+          </motion.div>
+        </div>
       </div>
+
+      {/* SECTION 2: Problem Section */}
+      <section className="py-24 px-6" data-testid="section-problem">
+        <div className="max-w-3xl mx-auto text-center flex flex-col items-center">
+          <FadeIn>
+            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#1A3320] mb-8 leading-tight">
+              Why So Many Projects Go Wrong in Nosara
+            </h2>
+            <p className="text-lg md:text-xl font-light mb-8 text-[#2E2A24]">
+              Hiring in Nosara can be unpredictable.
+            </p>
+            <ul className="text-left inline-block space-y-4 mb-10 text-lg md:text-xl font-light text-[#2E2A24]">
+              <li className="flex items-start">
+                <span className="text-[#B8924A] mr-4 text-2xl leading-none">&bull;</span>
+                Random recommendations with no context
+              </li>
+              <li className="flex items-start">
+                <span className="text-[#B8924A] mr-4 text-2xl leading-none">&bull;</span>
+                No idea who's actually available
+              </li>
+              <li className="flex items-start">
+                <span className="text-[#B8924A] mr-4 text-2xl leading-none">&bull;</span>
+                No consistency in quality or pricing
+              </li>
+            </ul>
+            <p className="text-xl md:text-2xl font-serif italic text-[#1A3320]">
+              "And sometimes… it leads to costly mistakes."
+            </p>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* SECTION 3: Testimonials */}
+      <section className="py-24 px-6 bg-[#EDE4D3]" data-testid="section-testimonials">
+        <div className="max-w-4xl mx-auto">
+          <FadeIn>
+            <div className="grid md:grid-cols-2 gap-12 md:gap-16">
+              <div className="relative">
+                <span className="absolute -top-10 -left-6 text-8xl font-serif text-[#B8924A] opacity-40 leading-none">"</span>
+                <p className="relative z-10 text-lg md:text-xl font-serif leading-relaxed mb-6 text-[#2E2A24]">
+                  Hiring the wrong people early on set our project back months and cost us far more than expected. If I had access to a trusted network like Ron's List from the start, we would have done things very differently.
+                </p>
+                <p className="text-sm uppercase tracking-widest text-[#7A7167]">
+                  — Homeowner in Nosara
+                </p>
+              </div>
+              <div className="relative">
+                <span className="absolute -top-10 -left-6 text-8xl font-serif text-[#B8924A] opacity-40 leading-none">"</span>
+                <p className="relative z-10 text-lg md:text-xl font-serif leading-relaxed mb-6 text-[#2E2A24]">
+                  After dealing with the wrong people early on, finding Ron's List changed everything for us. The people we were connected with showed up, communicated well, did solid work and finished on time. It made the whole process far less stressful.
+                </p>
+                <p className="text-sm uppercase tracking-widest text-[#7A7167]">
+                  — Homeowner in Nosara
+                </p>
+              </div>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* SECTION 4: Solution Section */}
+      <section className="py-28 px-6" data-testid="section-solution">
+        <div className="max-w-4xl mx-auto text-center">
+          <FadeIn>
+            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#1A3320] mb-6">
+              A Better Way to Find the Right People
+            </h2>
+            <div className="w-12 h-[2px] bg-[#B8924A] mx-auto mb-8" />
+            <p className="text-lg md:text-xl font-light mb-12 text-[#2E2A24]">
+              Ron's List connects you with professionals who are:
+            </p>
+
+            <div className="grid md:grid-cols-3 gap-8 mb-16">
+              <div className="flex flex-col items-center">
+                <div className="w-12 h-12 rounded-full border border-[#1A3320] flex items-center justify-center text-[#1A3320] font-serif text-xl mb-4">1</div>
+                <h3 className="font-serif text-xl text-[#1A3320]">Proven locally</h3>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="w-12 h-12 rounded-full border border-[#1A3320] flex items-center justify-center text-[#1A3320] font-serif text-xl mb-4">2</div>
+                <h3 className="font-serif text-xl text-[#1A3320]">Consistently recommended</h3>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="w-12 h-12 rounded-full border border-[#1A3320] flex items-center justify-center text-[#1A3320] font-serif text-xl mb-4">3</div>
+                <h3 className="font-serif text-xl text-[#1A3320]">Known and trusted within the Nosara community</h3>
+              </div>
+            </div>
+
+            <div className="max-w-3xl mx-auto space-y-6 text-[#2E2A24] font-light text-lg">
+              <p>
+                Ratings and recommendations are based on real experiences from homeowners and residents in Nosara—not anonymous online reviews.
+              </p>
+              <p>
+                Ratings reflect real homeowner experiences across reliability, communication, timelines, honesty, and overall quality of work.
+              </p>
+              <p className="font-medium text-[#1A3320] pt-4">
+                This isn't a public directory. It's a curated network built on real experience and trusted referrals.
+              </p>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* SECTION 5: Credibility / Origin Story */}
+      <section className="py-24 px-6 bg-[#EDE4D3]" data-testid="section-credibility">
+        <div className="max-w-3xl mx-auto">
+          <FadeIn>
+            <div className="border-l-2 border-[#B8924A] pl-8 md:pl-12">
+              <h2 className="font-serif text-3xl md:text-4xl text-[#1A3320] mb-8">
+                Built on Years of Local Trust
+              </h2>
+              <div className="space-y-6 font-serif text-lg md:text-xl text-[#2E2A24] leading-relaxed">
+                <p>
+                  "I grew up in Nosara and saw firsthand how often people struggle after hiring the wrong professionals."
+                </p>
+                <p>
+                  "For years, homeowners have relied on my dad—a developer here since 2005—for trusted recommendations when it really mattered."
+                </p>
+                <p>
+                  "Ron's List simply brings that trusted network into one place—so you don't have to figure it out the hard way."
+                </p>
+              </div>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* SECTION 6: How It Works */}
+      <section className="py-28 px-6" data-testid="section-how-it-works">
+        <div className="max-w-5xl mx-auto">
+          <FadeIn>
+            <div className="text-center mb-16">
+              <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#1A3320] mb-6">
+                Simple. Direct. Reliable.
+              </h2>
+              <div className="w-12 h-[2px] bg-[#B8924A] mx-auto" />
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-12 text-center">
+              <div className="flex flex-col items-center">
+                <span className="text-[#8FAB7A] font-serif text-6xl mb-4 block">1.</span>
+                <p className="font-sans text-xl text-[#1A3320]">Tell us what you need</p>
+              </div>
+              <div className="flex flex-col items-center">
+                <span className="text-[#8FAB7A] font-serif text-6xl mb-4 block">2.</span>
+                <p className="font-sans text-xl text-[#1A3320]">Get matched with the right professionals</p>
+              </div>
+              <div className="flex flex-col items-center">
+                <span className="text-[#8FAB7A] font-serif text-6xl mb-4 block">3.</span>
+                <p className="font-sans text-xl text-[#1A3320]">Move forward with clarity and confidence</p>
+              </div>
+            </div>
+
+            <div className="text-center mt-20">
+              <p className="font-serif italic text-2xl text-[#1A3320]">
+                No endless searching. No guesswork.
+              </p>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* SECTION 7: Categories */}
+      <section className="py-24 px-6 bg-[#EDE4D3]" data-testid="section-categories">
+        <div className="max-w-4xl mx-auto text-center">
+          <FadeIn>
+            <h2 className="font-serif text-3xl md:text-4xl text-[#1A3320] mb-12">
+              What You Can Find
+            </h2>
+            <div className="flex flex-wrap justify-center gap-4 md:gap-6">
+              {[
+                "Builders & General Contractors",
+                "Architects & Designers",
+                "Furniture & Interiors",
+                "Property Management",
+                "Maintenance & Services"
+              ].map((category) => (
+                <div 
+                  key={category}
+                  className="px-6 py-4 bg-[#F2EBE0] border border-[#D5CABB] rounded-sm font-sans text-lg text-[#1A3320] tracking-wide"
+                >
+                  {category}
+                </div>
+              ))}
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* SECTION 8: Final CTA */}
+      <section className="py-32 px-6" data-testid="section-cta">
+        <div className="max-w-3xl mx-auto text-center flex flex-col items-center">
+          <FadeIn>
+            <h2 className="font-serif text-4xl md:text-5xl text-[#1A3320] mb-6">
+              Don't Leave It to Chance
+            </h2>
+            <div className="w-12 h-[2px] bg-[#B8924A] mx-auto mb-8" />
+            <p className="text-lg md:text-xl font-light mb-12 text-[#2E2A24]">
+              The difference between a smooth project and a frustrating one often comes down to who you hire.
+            </p>
+            
+            <button
+              className="w-full max-w-md font-sans font-medium tracking-wide transition-all duration-300 hover:opacity-90"
+              style={{
+                backgroundColor: "#1A3320",
+                color: "#FFFFFF",
+                borderRadius: "8px",
+                padding: "18px 36px",
+                fontSize: "clamp(0.9rem, 1.6vw, 1.05rem)",
+                border: "none",
+                cursor: "pointer",
+                letterSpacing: "0.02em",
+              }}
+            >
+              Get Connected to Trusted Professionals
+            </button>
+            
+            <p className="mt-6 font-sans font-light text-[#7A7167] text-sm">
+              No cost. No obligation. Just the right people.
+            </p>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="py-12 px-6 border-t border-[#D5CABB]">
+        <div className="max-w-4xl mx-auto text-center">
+          <p className="text-sm text-[#7A7167] font-sans">
+            © 2025 Ron's List · Nosara, Costa Rica
+          </p>
+        </div>
+      </footer>
     </div>
   );
 }
