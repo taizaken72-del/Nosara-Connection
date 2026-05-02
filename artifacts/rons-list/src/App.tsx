@@ -58,8 +58,8 @@ function Home() {
           />
         </div>
 
-        {/* Main content — centered */}
-        <div className="relative z-10 flex flex-col items-center justify-center min-h-[calc(100dvh-80px)] px-6 pb-12 text-center">
+        {/* Main content — shifted up */}
+        <div className="relative z-10 flex flex-col items-center justify-start pt-4 md:pt-6 px-6 pb-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
@@ -68,10 +68,10 @@ function Home() {
           >
             {/* Headline */}
             <h1
-              className="font-serif font-semibold leading-[1.15] mb-5"
+              className="font-serif font-semibold leading-[1.15] mb-3"
               style={{
                 color: "#1A3320",
-                fontSize: "clamp(2rem, 5vw, 3.6rem)",
+                fontSize: "clamp(1.7rem, 4vw, 2.9rem)",
               }}
             >
               Hiring the Wrong Builders Is the Most Expensive Mistake in Nosara
@@ -79,7 +79,7 @@ function Home() {
 
             {/* Gold divider */}
             <div
-              className="mb-6"
+              className="mb-4"
               style={{
                 width: "48px",
                 height: "2px",
@@ -90,7 +90,7 @@ function Home() {
 
             {/* Subheadline */}
             <p
-              className="font-sans font-light leading-relaxed mb-4 max-w-md"
+              className="font-sans font-light leading-relaxed mb-3 max-w-md"
               style={{ color: "#2E2A24", fontSize: "clamp(0.95rem, 1.8vw, 1.1rem)" }}
             >
               The wrong professionals lead to delays, budget overruns, and serious stress.
@@ -98,7 +98,7 @@ function Home() {
 
             {/* Supporting text */}
             <p
-              className="font-sans font-light leading-relaxed mb-10 max-w-lg"
+              className="font-sans font-light leading-relaxed mb-6 max-w-lg"
               style={{ color: "#2E2A24", fontSize: "clamp(0.95rem, 1.8vw, 1.1rem)" }}
             >
               Ron's List connects you with trusted professionals in Nosara—backed by <strong style={{ fontWeight: 600 }}>real experiences</strong> from the <strong style={{ fontWeight: 600 }}>local community.</strong>
