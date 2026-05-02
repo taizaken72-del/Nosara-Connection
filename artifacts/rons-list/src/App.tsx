@@ -45,7 +45,7 @@ function Home() {
           src="/rons-list-logo-transparent.png"
           alt="Ron's List"
           data-testid="img-logo"
-          className="w-[90px] md:w-[110px] h-auto object-contain"
+          className="w-[117px] md:w-[143px] h-auto object-contain"
         />
       </div>
 
