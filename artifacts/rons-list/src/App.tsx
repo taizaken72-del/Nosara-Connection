@@ -120,17 +120,27 @@ function ContactForm() {
         />
       </div>
       <div className="flex flex-col gap-2">
-        <label className="font-sans text-sm font-medium text-[#1A3320] tracking-wide">What do you need from us?</label>
-        <textarea
+        <label className="font-sans text-sm font-medium text-[#1A3320] tracking-wide">What do you need help with?</label>
+        <select
           data-testid="input-needs"
           name="needs"
           value={form.needs}
-          onChange={handleChange}
-          placeholder="Tell us about your project or what kind of professional you're looking for…"
+          onChange={handleChange as React.ChangeEventHandler<HTMLSelectElement>}
           required
-          rows={5}
-          style={{ ...inputStyle, resize: "vertical" }}
-        />
+          style={{ ...inputStyle, appearance: "auto" }}
+        >
+          <option value="" disabled>Select a category…</option>
+          <option value="Builder / Contractor">Builder / Contractor</option>
+          <option value="Architect">Architect</option>
+          <option value="Designer">Designer</option>
+          <option value="Furniture & Interiors">Furniture &amp; Interiors</option>
+          <option value="Property Management">Property Management</option>
+          <option value="Maintenance / Repairs">Maintenance / Repairs</option>
+          <option value="Landscaping">Landscaping</option>
+          <option value="Pool Service">Pool Service</option>
+          <option value="Cleaning">Cleaning</option>
+          <option value="Other">Other</option>
+        </select>
       </div>
       <button
         data-testid="button-submit"
