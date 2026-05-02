@@ -135,31 +135,45 @@ function Home() {
 
       {/* SECTION 2: Problem Section */}
       <section className="py-24 px-6" data-testid="section-problem">
-        <div className="max-w-3xl mx-auto text-center flex flex-col items-center">
+        <div className="max-w-5xl mx-auto">
           <FadeIn>
-            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#1A3320] mb-8 leading-tight">
-              Why So Many Projects Go Wrong in Nosara
-            </h2>
-            <p className="text-lg md:text-xl font-light mb-8 text-[#2E2A24]">
-              Hiring in Nosara can be unpredictable.
-            </p>
-            <ul className="text-left inline-block space-y-4 mb-10 text-lg md:text-xl font-light text-[#2E2A24]">
-              <li className="flex items-start">
-                <span className="text-[#B8924A] mr-4 text-2xl leading-none">&bull;</span>
-                Random recommendations with no context
-              </li>
-              <li className="flex items-start">
-                <span className="text-[#B8924A] mr-4 text-2xl leading-none">&bull;</span>
-                No idea who's actually available
-              </li>
-              <li className="flex items-start">
-                <span className="text-[#B8924A] mr-4 text-2xl leading-none">&bull;</span>
-                No consistency in quality or pricing
-              </li>
-            </ul>
-            <p className="text-xl md:text-2xl font-serif italic text-[#1A3320]">
-              "And sometimes… it leads to costly mistakes."
-            </p>
+            <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16">
+              {/* Text */}
+              <div className="w-full md:w-3/5">
+                <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#1A3320] mb-8 leading-tight">
+                  Why So Many Projects Go Wrong in Nosara
+                </h2>
+                <p className="text-lg md:text-xl font-light mb-8 text-[#2E2A24]">
+                  Hiring in Nosara can be unpredictable.
+                </p>
+                <ul className="space-y-4 mb-10 text-lg md:text-xl font-light text-[#2E2A24]">
+                  <li className="flex items-start">
+                    <span className="text-[#B8924A] mr-4 text-2xl leading-none">&bull;</span>
+                    Random recommendations with no context
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-[#B8924A] mr-4 text-2xl leading-none">&bull;</span>
+                    No idea who's actually available
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-[#B8924A] mr-4 text-2xl leading-none">&bull;</span>
+                    No consistency in quality or pricing
+                  </li>
+                </ul>
+                <p className="text-xl md:text-2xl font-serif italic text-[#1A3320]">
+                  "And sometimes… it leads to costly mistakes."
+                </p>
+              </div>
+              {/* Photo */}
+              <div className="w-full md:w-2/5 flex-shrink-0">
+                <img
+                  src="/nosara-construction.jpg"
+                  alt="Construction in Nosara"
+                  className="w-full h-[380px] md:h-[460px] object-cover rounded-sm"
+                  style={{ boxShadow: "0 4px 24px rgba(0,0,0,0.10)" }}
+                />
+              </div>
+            </div>
           </FadeIn>
         </div>
       </section>
