@@ -42,11 +42,10 @@ function Home() {
       {/* Logo — top left */}
       <div className="relative z-10 px-6 pt-6 md:px-10 md:pt-8">
         <img
-          src="/rons-list-logo.jpg"
+          src="/rons-list-logo-transparent.png"
           alt="Ron's List"
           data-testid="img-logo"
           className="w-[90px] md:w-[110px] h-auto object-contain"
-          style={{ mixBlendMode: "multiply" }}
         />
       </div>
 
