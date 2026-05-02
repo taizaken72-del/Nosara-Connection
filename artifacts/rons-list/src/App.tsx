@@ -96,7 +96,7 @@ function Home() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease: "easeOut" }}
-            className="w-full max-w-2xl flex flex-col items-center"
+            className="w-full max-w-4xl flex flex-col items-center"
           >
             {/* Headline */}
             <h1
