@@ -48,8 +48,8 @@ function Home() {
           }}
         />
 
-        {/* Logo — top left */}
-        <div className="relative z-10 px-6 pt-6 md:px-10 md:pt-8">
+        {/* Logo — top center */}
+        <div className="relative z-10 flex justify-center px-6 pt-6 md:pt-8">
           <img
             src="/rons-list-logo-transparent.png"
             alt="Ron's List"
