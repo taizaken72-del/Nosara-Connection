@@ -14,7 +14,7 @@ function RotatingWord() {
   useEffect(() => {
     const timer = setInterval(() => {
       setIndex((i) => (i + 1) % ROTATING_WORDS.length);
-    }, 1000);
+    }, 1500);
     return () => clearInterval(timer);
   }, []);
 
