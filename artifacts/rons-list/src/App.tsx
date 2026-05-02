@@ -101,7 +101,7 @@ function Home() {
               className="font-sans font-light leading-relaxed mb-6 max-w-lg"
               style={{ color: "#2E2A24", fontSize: "clamp(0.95rem, 1.8vw, 1.1rem)" }}
             >
-              Ron's List connects you with trusted professionals in Nosara—backed by <strong style={{ fontWeight: 600 }}>real experiences</strong> from the <strong style={{ fontWeight: 600 }}>local community.</strong>
+              Ron's List connects you with trusted professionals across your entire project in Nosara—backed by <strong style={{ fontWeight: 600 }}>real experiences</strong> from the <strong style={{ fontWeight: 600 }}>local community.</strong>
             </p>
 
             {/* CTA Button */}
