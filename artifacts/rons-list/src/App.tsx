@@ -236,22 +236,34 @@ function Home() {
 
       {/* SECTION 5: Credibility / Origin Story */}
       <section className="py-24 px-6 bg-[#EDE4D3]" data-testid="section-credibility">
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <FadeIn>
-            <div className="border-l-2 border-[#B8924A] pl-8 md:pl-12">
-              <h2 className="font-serif text-3xl md:text-4xl text-[#1A3320] mb-8">
-                Built on Years of Local Trust
-              </h2>
-              <div className="space-y-6 font-serif text-lg md:text-xl text-[#2E2A24] leading-relaxed">
-                <p>
-                  "I grew up in Nosara and saw firsthand how often people struggle after hiring the wrong professionals."
-                </p>
-                <p>
-                  "For years, homeowners have relied on my dad—a developer here since 2005—for trusted recommendations when it really mattered."
-                </p>
-                <p>
-                  "Ron's List simply brings that trusted network into one place—so you don't have to figure it out the hard way."
-                </p>
+            <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16">
+              {/* Photo */}
+              <div className="w-full md:w-2/5 flex-shrink-0">
+                <img
+                  src="/nosara-surf.jpg"
+                  alt="Nosara sunset surf"
+                  className="w-full h-[420px] md:h-[500px] object-cover rounded-sm"
+                  style={{ boxShadow: "0 4px 24px rgba(0,0,0,0.10)" }}
+                />
+              </div>
+              {/* Text */}
+              <div className="w-full md:w-3/5 border-l-2 border-[#B8924A] pl-8 md:pl-12">
+                <h2 className="font-serif text-3xl md:text-4xl text-[#1A3320] mb-8">
+                  Built on Years of Local Trust
+                </h2>
+                <div className="space-y-6 font-serif text-lg md:text-xl text-[#2E2A24] leading-relaxed">
+                  <p>
+                    "I grew up in Nosara and saw firsthand how often people struggle after hiring the wrong professionals."
+                  </p>
+                  <p>
+                    "For years, homeowners have relied on my dad—a developer here since 2005—for trusted recommendations when it really mattered."
+                  </p>
+                  <p>
+                    "Ron's List simply brings that trusted network into one place—so you don't have to figure it out the hard way."
+                  </p>
+                </div>
               </div>
             </div>
           </FadeIn>
