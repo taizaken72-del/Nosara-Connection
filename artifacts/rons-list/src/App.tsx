@@ -6,7 +6,7 @@ import NotFound from "@/pages/not-found";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 
-const ROTATING_WORDS = ["Builder", "Architect", "Designer", "Furniture"];
+const ROTATING_WORDS = ["Builder", "Architect", "Designer", "Contractor"];
 
 function RotatingWord() {
   const [index, setIndex] = useState(0);
