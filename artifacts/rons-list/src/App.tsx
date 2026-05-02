@@ -101,7 +101,7 @@ function Home() {
               className="font-sans font-light leading-relaxed mb-10 max-w-lg"
               style={{ color: "#2E2A24", fontSize: "clamp(0.95rem, 1.8vw, 1.1rem)" }}
             >
-              Ron's List connects you with trusted professionals in Nosara—backed by real experiences from the local community.
+              Ron's List connects you with trusted professionals in Nosara—backed by <strong style={{ fontWeight: 600 }}>real experiences</strong> from the <strong style={{ fontWeight: 600 }}>local community.</strong>
             </p>
 
             {/* CTA Button */}
@@ -127,7 +127,7 @@ function Home() {
               className="mt-4 font-sans font-light"
               style={{ color: "#7A7167", fontSize: "0.82rem" }}
             >
-              <strong style={{ fontWeight: 600, color: "#5A5248" }}>No cost.</strong> No obligation. Just people you can trust.
+              <strong style={{ fontWeight: 600, color: "#5A5248" }}>No cost. No obligation. Just people you can trust.</strong>
             </p>
           </motion.div>
         </div>
