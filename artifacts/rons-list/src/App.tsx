@@ -74,7 +74,7 @@ function Home() {
                 fontSize: "clamp(1.7rem, 4vw, 2.9rem)",
               }}
             >
-              Hiring the Wrong Builders Is the Most Expensive Mistake in Nosara
+              Hiring the Wrong Builder Is the Most Expensive Mistake in Nosara
             </h1>
 
             {/* Gold divider */}
