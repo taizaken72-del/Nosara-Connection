@@ -258,7 +258,7 @@ function Home() {
                     "I grew up in Nosara and saw firsthand how often people struggle after hiring the wrong professionals."
                   </p>
                   <p>
-                    "For years, homeowners have relied on my dad—a developer here since 2005—for trusted recommendations when it really mattered."
+                    "For years, homeowners have relied on my dad (Ron)—a developer here since 2005—for trusted recommendations when it really mattered."
                   </p>
                   <p>
                     "Ron's List simply brings that trusted network into one place—so you don't have to figure it out the hard way."
