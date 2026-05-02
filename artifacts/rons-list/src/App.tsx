@@ -3,7 +3,39 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
+
+const ROTATING_WORDS = ["Builder", "Architect", "Designer", "Furniture"];
+
+function RotatingWord() {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((i) => (i + 1) % ROTATING_WORDS.length);
+    }, 2200);
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <span className="inline-block relative" style={{ minWidth: "7ch" }}>
+      <AnimatePresence mode="wait">
+        <motion.span
+          key={ROTATING_WORDS[index]}
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -12 }}
+          transition={{ duration: 0.4, ease: "easeInOut" }}
+          className="inline-block"
+          style={{ color: "#B8924A" }}
+        >
+          {ROTATING_WORDS[index]}
+        </motion.span>
+      </AnimatePresence>
+    </span>
+  );
+}
 
 const queryClient = new QueryClient();
 
@@ -74,7 +106,7 @@ function Home() {
                 fontSize: "clamp(1.7rem, 4vw, 2.9rem)",
               }}
             >
-              Hiring the Wrong Builder Is the Most Expensive Mistake in Nosara
+              Hiring the Wrong <RotatingWord /> Is the Most Expensive Mistake in Nosara
             </h1>
 
             {/* Gold divider */}
