@@ -418,6 +418,16 @@ function Home() {
               Ron's List connects you with trusted professionals across your entire project in Nosara—backed by <strong style={{ fontWeight: 600 }}>real experiences</strong> from the <strong style={{ fontWeight: 600 }}>local community.</strong>
             </p>
 
+            {/* Community Verified Badge */}
+            <div className="mb-6 max-w-md">
+              <img
+                src="/community-verified-badge.jpeg"
+                alt="Community Verified — Built on real referrals from people who live here"
+                className="w-full rounded-xl"
+                style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.08)" }}
+              />
+            </div>
+
             {/* CTA Button */}
             <button
               data-testid="button-cta"
