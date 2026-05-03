@@ -67,9 +67,27 @@ function ContactForm() {
     );
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setSubmitting(true);
+    setError(null);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...form, needs }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error ?? "Something went wrong.");
+      setSubmitted(true);
+    } catch (err: any) {
+      setError(err.message ?? "Failed to send. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   if (submitted) {
@@ -161,9 +179,15 @@ function ContactForm() {
           })}
         </div>
       </div>
+      {error && (
+        <p className="text-center font-sans text-sm text-red-700 bg-red-50 border border-red-200 rounded-md py-3 px-4">
+          {error}
+        </p>
+      )}
       <button
         data-testid="button-submit"
         type="submit"
+        disabled={submitting}
         className="font-sans font-medium tracking-wide transition-all duration-300 hover:opacity-90 mt-2"
         style={{
           backgroundColor: "#1A3320",
@@ -172,11 +196,12 @@ function ContactForm() {
           padding: "16px 36px",
           fontSize: "1rem",
           border: "none",
-          cursor: "pointer",
+          cursor: submitting ? "not-allowed" : "pointer",
+          opacity: submitting ? 0.7 : 1,
           letterSpacing: "0.02em",
         }}
       >
-        Get Connected to Trusted Professionals
+        {submitting ? "Sending…" : "Get Connected to Trusted Professionals"}
       </button>
       <p className="text-center font-sans font-light text-[#7A7167] text-sm">
         <strong style={{ fontWeight: 600, color: "#5A5248" }}>No cost.</strong> No obligation. Just people you can trust.
