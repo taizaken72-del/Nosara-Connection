@@ -512,7 +512,7 @@ function Home() {
                   After dealing with the wrong people early on, finding Ron's List changed everything for us. The people we were connected with showed up, communicated well, did solid work and finished on time. It made the whole process far less stressful.
                 </p>
                 <p className="text-sm uppercase tracking-widest text-[#7A7167]">
-                  — Homeowner in Nosara
+                  — Simon Sayag, North Guiones
                 </p>
               </div>
               <div className="relative">
