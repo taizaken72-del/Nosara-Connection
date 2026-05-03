@@ -419,6 +419,12 @@ function Home() {
       <section className="py-24 px-6 bg-[#EDE4D3]" data-testid="section-testimonials">
         <div className="max-w-4xl mx-auto">
           <FadeIn>
+            <div className="text-center mb-12">
+              <h2 className="font-serif text-2xl md:text-3xl text-[#1A3320]">
+                Real experiences from homeowners who've built in Nosara.
+              </h2>
+              <div className="w-12 h-[2px] bg-[#B8924A] mx-auto mt-6" />
+            </div>
             <div className="grid md:grid-cols-2 gap-12 md:gap-16">
               <div className="relative">
                 <span className="absolute -top-10 -left-6 text-8xl font-serif text-[#B8924A] opacity-40 leading-none">"</span>
