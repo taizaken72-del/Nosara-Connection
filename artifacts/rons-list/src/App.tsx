@@ -509,7 +509,7 @@ function Home() {
               <div className="relative">
                 <span className="absolute -top-10 -left-6 text-8xl font-serif text-[#B8924A] opacity-40 leading-none">"</span>
                 <p className="relative z-10 text-lg md:text-xl font-serif leading-relaxed mb-6 text-[#2E2A24]">
-                  Hiring the wrong people early on set our project back months and cost us far more than expected. If I had access to a trusted network like Ron's List from the start, we would have done things very differently.
+                  After dealing with the wrong people early on, finding Ron's List changed everything for us. The people we were connected with showed up, communicated well, did solid work and finished on time. It made the whole process far less stressful.
                 </p>
                 <p className="text-sm uppercase tracking-widest text-[#7A7167]">
                   — Homeowner in Nosara
@@ -518,7 +518,7 @@ function Home() {
               <div className="relative">
                 <span className="absolute -top-10 -left-6 text-8xl font-serif text-[#B8924A] opacity-40 leading-none">"</span>
                 <p className="relative z-10 text-lg md:text-xl font-serif leading-relaxed mb-6 text-[#2E2A24]">
-                  After dealing with the wrong people early on, finding Ron's List changed everything for us. The people we were connected with showed up, communicated well, did solid work and finished on time. It made the whole process far less stressful.
+                  Hiring the wrong people early on set our project back months and cost us far more than expected. If I had access to a trusted network like Ron's List from the start, we would have done things very differently.
                 </p>
                 <p className="text-sm uppercase tracking-widest text-[#7A7167]">
                   — Homeowner in Nosara
