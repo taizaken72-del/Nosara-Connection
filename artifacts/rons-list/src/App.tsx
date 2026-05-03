@@ -55,6 +55,7 @@ const inputStyle: React.CSSProperties = {
 function ContactForm() {
   const [form, setForm] = useState({ name: "", email: "", phone: "" });
   const [needs, setNeeds] = useState<string[]>([]);
+  const [timeline, setTimeline] = useState<string>("");
   const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -78,7 +79,7 @@ function ContactForm() {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...form, needs }),
+        body: JSON.stringify({ ...form, needs, timeline }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error ?? "Something went wrong.");
@@ -160,6 +161,36 @@ function ContactForm() {
                 type="button"
                 data-testid={`chip-${option}`}
                 onClick={() => toggleNeed(option)}
+                style={{
+                  padding: "10px 18px",
+                  borderRadius: "6px",
+                  border: selected ? "1.5px solid #1A3320" : "1.5px solid #D5CABB",
+                  backgroundColor: selected ? "#1A3320" : "#F8F3EC",
+                  color: selected ? "#FFFFFF" : "#2E2A24",
+                  fontFamily: "Inter, sans-serif",
+                  fontSize: "0.9rem",
+                  cursor: "pointer",
+                  transition: "all 0.18s ease",
+                  fontWeight: selected ? 500 : 400,
+                }}
+              >
+                {option}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+      <div className="flex flex-col gap-3">
+        <label className="font-sans text-sm font-medium text-[#1A3320] tracking-wide">When do you need someone?</label>
+        <div className="flex flex-wrap gap-3">
+          {["As soon as possible", "Within 1–2 weeks", "Within 1–2 months", "Just researching"].map((option) => {
+            const selected = timeline === option;
+            return (
+              <button
+                key={option}
+                type="button"
+                data-testid={`timeline-${option}`}
+                onClick={() => setTimeline(selected ? "" : option)}
                 style={{
                   padding: "10px 18px",
                   borderRadius: "6px",

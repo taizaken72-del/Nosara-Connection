@@ -4,11 +4,12 @@ import { getUncachableResendClient } from "../lib/resend.js";
 const contactRouter = Router();
 
 contactRouter.post("/contact", async (req, res) => {
-  const { name, email, phone, needs } = req.body as {
+  const { name, email, phone, needs, timeline } = req.body as {
     name: string;
     email: string;
     phone?: string;
     needs?: string[];
+    timeline?: string;
   };
 
   if (!name || !email) {
@@ -32,9 +33,10 @@ contactRouter.post("/contact", async (req, res) => {
       text: [
         `New contact form submission from Ron's List`,
         ``,
-        `Name:    ${name}`,
-        `Email:   ${email}`,
+        `Name:     ${name}`,
+        `Email:    ${email}`,
         `WhatsApp: ${phone || "Not provided"}`,
+        `Timeline: ${timeline || "Not specified"}`,
         ``,
         `What they need help with:`,
         needsList,
