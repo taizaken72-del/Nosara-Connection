@@ -396,7 +396,7 @@ function Home() {
                   </li>
                 </ul>
                 <p className="text-xl md:text-2xl font-serif italic text-[#1A3320]">
-                  "And often, it leads to costly mistakes."
+                  And often, it leads to costly mistakes.
                 </p>
               </div>
               {/* Photo */}
