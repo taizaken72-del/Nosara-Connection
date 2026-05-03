@@ -514,6 +514,14 @@ function Home() {
                 <p className="text-sm uppercase tracking-widest text-[#7A7167]">
                   — Simon Sayag, North Guiones
                 </p>
+                <img
+                  src="/simon-home.jpg"
+                  alt="Simon Sayag's home in North Guiones"
+                  className="mt-6 w-full h-56 object-cover rounded-sm"
+                  style={{ boxShadow: "0 4px 20px rgba(0,0,0,0.10)" }}
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
               <div className="relative">
                 <span className="absolute -top-10 -left-6 text-8xl font-serif text-[#B8924A] opacity-40 leading-none">"</span>
