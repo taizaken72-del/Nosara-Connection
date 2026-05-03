@@ -625,7 +625,7 @@ function Home() {
                     "Ron's List simply brings that trusted network into one place—so you don't have to figure it out the hard way."
                   </p>
                 </div>
-                <p className="mt-8 text-sm uppercase tracking-widest text-[#7A7167] font-sans">
+                <p className="mt-8 text-base font-sans font-medium tracking-widest text-[#2E2A24]">
                   — Milan
                 </p>
               </div>
