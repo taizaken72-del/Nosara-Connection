@@ -285,6 +285,7 @@ function Home() {
             {/* CTA Button */}
             <button
               data-testid="button-cta"
+              onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
               className="w-full max-w-md font-sans font-medium tracking-wide transition-all duration-300 hover:opacity-90"
               style={{
                 backgroundColor: "#1A3320",
@@ -537,6 +538,7 @@ function Home() {
             </p>
             
             <button
+              onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
               className="w-full max-w-md font-sans font-medium tracking-wide transition-all duration-300 hover:opacity-90"
               style={{
                 backgroundColor: "#1A3320",
@@ -560,7 +562,7 @@ function Home() {
       </section>
 
       {/* SECTION 9: Contact Form */}
-      <section className="py-24 px-6 bg-[#EDE4D3]" data-testid="section-contact">
+      <section id="contact" className="py-24 px-6 bg-[#EDE4D3]" data-testid="section-contact">
         <div className="max-w-2xl mx-auto">
           <FadeIn>
             <div className="text-center mb-12">
