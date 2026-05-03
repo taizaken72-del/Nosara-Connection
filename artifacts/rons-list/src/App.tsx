@@ -53,11 +53,18 @@ const inputStyle: React.CSSProperties = {
 };
 
 function ContactForm() {
-  const [form, setForm] = useState({ name: "", email: "", phone: "", needs: "" });
+  const [form, setForm] = useState({ name: "", email: "", phone: "" });
+  const [needs, setNeeds] = useState<string[]>([]);
   const [submitted, setSubmitted] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const toggleNeed = (value: string) => {
+    setNeeds((prev) =>
+      prev.includes(value) ? prev.filter((v) => v !== value) : [...prev, value]
+    );
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -119,28 +126,40 @@ function ContactForm() {
           style={inputStyle}
         />
       </div>
-      <div className="flex flex-col gap-2">
-        <label className="font-sans text-sm font-medium text-[#1A3320] tracking-wide">What do you need help with?</label>
-        <select
-          data-testid="input-needs"
-          name="needs"
-          value={form.needs}
-          onChange={handleChange as React.ChangeEventHandler<HTMLSelectElement>}
-          required
-          style={{ ...inputStyle, appearance: "auto" }}
-        >
-          <option value="" disabled>Select a category…</option>
-          <option value="Builder / Contractor">Builder / Contractor</option>
-          <option value="Architect">Architect</option>
-          <option value="Designer">Designer</option>
-          <option value="Furniture & Interiors">Furniture &amp; Interiors</option>
-          <option value="Property Management">Property Management</option>
-          <option value="Maintenance / Repairs">Maintenance / Repairs</option>
-          <option value="Landscaping">Landscaping</option>
-          <option value="Pool Service">Pool Service</option>
-          <option value="Cleaning">Cleaning</option>
-          <option value="Other">Other</option>
-        </select>
+      <div className="flex flex-col gap-3">
+        <label className="font-sans text-sm font-medium text-[#1A3320] tracking-wide">What do you need help with? <span className="font-light text-[#7A7167]">(select all that apply)</span></label>
+        <div className="flex flex-wrap gap-3">
+          {[
+            "Builder / Contractor", "Architect", "Designer",
+            "Furniture & Interiors", "Property Management",
+            "Maintenance / Repairs", "Landscaping",
+            "Pool Service", "Cleaning", "Other"
+          ].map((option) => {
+            const selected = needs.includes(option);
+            return (
+              <button
+                key={option}
+                type="button"
+                data-testid={`chip-${option}`}
+                onClick={() => toggleNeed(option)}
+                style={{
+                  padding: "10px 18px",
+                  borderRadius: "6px",
+                  border: selected ? "1.5px solid #1A3320" : "1.5px solid #D5CABB",
+                  backgroundColor: selected ? "#1A3320" : "#F8F3EC",
+                  color: selected ? "#FFFFFF" : "#2E2A24",
+                  fontFamily: "Inter, sans-serif",
+                  fontSize: "0.9rem",
+                  cursor: "pointer",
+                  transition: "all 0.18s ease",
+                  fontWeight: selected ? 500 : 400,
+                }}
+              >
+                {option}
+              </button>
+            );
+          })}
+        </div>
       </div>
       <button
         data-testid="button-submit"
