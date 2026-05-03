@@ -425,36 +425,36 @@ function Home() {
                 background: "#F5F0E8",
                 border: "1px solid #E0D8CC",
                 borderRadius: "10px",
-                padding: "9.5px 18.8px",
+                padding: "10.5px 20.7px",
                 boxShadow: "0 2px 10px rgba(0,0,0,0.06)",
               }}
             >
               <div
                 className="flex-shrink-0 flex items-center justify-center"
                 style={{
-                  width: "32px",
-                  height: "32px",
+                  width: "35px",
+                  height: "35px",
                   borderRadius: "50%",
                   backgroundColor: "#1A3320",
                 }}
               >
-                <svg width="16" height="16" viewBox="0 0 22 22" fill="none">
+                <svg width="18" height="18" viewBox="0 0 22 22" fill="none">
                   <path d="M5 11.5L9 15.5L17 7" stroke="white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
               <div
                 style={{
                   width: "1px",
-                  height: "28px",
+                  height: "31px",
                   backgroundColor: "#C8BFB0",
                   flexShrink: 0,
                 }}
               />
               <div>
-                <p className="font-sans font-bold" style={{ color: "#1A3320", fontSize: "0.75rem", letterSpacing: "0.1em" }}>
+                <p className="font-sans font-bold" style={{ color: "#1A3320", fontSize: "0.825rem", letterSpacing: "0.1em" }}>
                   COMMUNITY VERIFIED
                 </p>
-                <p className="font-sans font-light" style={{ color: "#5A5248", fontSize: "0.78rem", marginTop: "1px" }}>
+                <p className="font-sans font-light" style={{ color: "#5A5248", fontSize: "0.858rem", marginTop: "1px" }}>
                   Built on real referrals from people who live here
                 </p>
               </div>
