@@ -241,6 +241,86 @@ function ContactForm() {
   );
 }
 
+const TESTIMONIALS = [
+  {
+    quote:
+      "Hiring the wrong people early on set our project back months and cost us far more than expected. If I had access to a trusted network like Ron's List from the start, we would have done things very differently.",
+    author: "Homeowner in Nosara",
+  },
+  {
+    quote:
+      "After dealing with the wrong people early on, finding Ron's List changed everything for us. The people we were connected with showed up, communicated well, did solid work and finished on time. It made the whole process far less stressful.",
+    author: "Homeowner in Nosara",
+  },
+];
+
+function TestimonialCarousel() {
+  const [index, setIndex] = useState(0);
+  const [dir, setDir] = useState<1 | -1>(1);
+
+  const go = (d: 1 | -1) => {
+    setDir(d);
+    setIndex((prev) => (prev + d + TESTIMONIALS.length) % TESTIMONIALS.length);
+  };
+
+  const t = TESTIMONIALS[index];
+
+  return (
+    <div className="relative flex items-center gap-4 md:gap-8">
+      {/* Left arrow */}
+      <button
+        onClick={() => go(-1)}
+        aria-label="Previous review"
+        className="flex-shrink-0 w-10 h-10 rounded-full border border-[#D5CABB] flex items-center justify-center text-[#1A3320] hover:border-[#1A3320] transition-colors"
+      >
+        &#8592;
+      </button>
+
+      {/* Card */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, x: dir * 40 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: dir * -40 }}
+          transition={{ duration: 0.35, ease: "easeInOut" }}
+          className="relative flex-1 min-h-[180px]"
+        >
+          <span className="absolute -top-8 -left-4 text-8xl font-serif text-[#B8924A] opacity-30 leading-none select-none">"</span>
+          <p className="relative z-10 text-lg md:text-xl font-serif leading-relaxed mb-6 text-[#2E2A24]">
+            {t.quote}
+          </p>
+          <p className="text-sm uppercase tracking-widest text-[#7A7167]">
+            — {t.author}
+          </p>
+        </motion.div>
+      </AnimatePresence>
+
+      {/* Right arrow */}
+      <button
+        onClick={() => go(1)}
+        aria-label="Next review"
+        className="flex-shrink-0 w-10 h-10 rounded-full border border-[#D5CABB] flex items-center justify-center text-[#1A3320] hover:border-[#1A3320] transition-colors"
+      >
+        &#8594;
+      </button>
+
+      {/* Dots */}
+      <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 flex gap-2">
+        {TESTIMONIALS.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => { setDir(i > index ? 1 : -1); setIndex(i); }}
+            className="w-2 h-2 rounded-full transition-colors"
+            style={{ backgroundColor: i === index ? "#B8924A" : "#D5CABB" }}
+            aria-label={`Go to review ${i + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 const FadeIn = ({ children, delay = 0 }: { children: React.ReactNode, delay?: number }) => (
   <motion.div
     initial={{ opacity: 0, y: 24 }}
@@ -425,26 +505,7 @@ function Home() {
               </h2>
               <div className="w-12 h-[2px] bg-[#B8924A] mx-auto mt-6" />
             </div>
-            <div className="grid md:grid-cols-2 gap-12 md:gap-16">
-              <div className="relative">
-                <span className="absolute -top-10 -left-6 text-8xl font-serif text-[#B8924A] opacity-40 leading-none">"</span>
-                <p className="relative z-10 text-lg md:text-xl font-serif leading-relaxed mb-6 text-[#2E2A24]">
-                  Hiring the wrong people early on set our project back months and cost us far more than expected. If I had access to a trusted network like Ron's List from the start, we would have done things very differently.
-                </p>
-                <p className="text-sm uppercase tracking-widest text-[#7A7167]">
-                  — Homeowner in Nosara
-                </p>
-              </div>
-              <div className="relative">
-                <span className="absolute -top-10 -left-6 text-8xl font-serif text-[#B8924A] opacity-40 leading-none">"</span>
-                <p className="relative z-10 text-lg md:text-xl font-serif leading-relaxed mb-6 text-[#2E2A24]">
-                  After dealing with the wrong people early on, finding Ron's List changed everything for us. The people we were connected with showed up, communicated well, did solid work and finished on time. It made the whole process far less stressful.
-                </p>
-                <p className="text-sm uppercase tracking-widest text-[#7A7167]">
-                  — Homeowner in Nosara
-                </p>
-              </div>
-            </div>
+            <TestimonialCarousel />
           </FadeIn>
         </div>
       </section>
