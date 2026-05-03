@@ -627,7 +627,7 @@ function Home() {
               </h2>
               <div className="w-12 h-[2px] bg-[#B8924A] mx-auto mb-6" />
               <p className="font-sans font-light text-lg text-[#2E2A24]">
-                We'll connect you with the right people — no searching required.
+                We'll connect you with trusted professionals in Nosara—based on real experiences from the community.
               </p>
             </div>
             <ContactForm />
