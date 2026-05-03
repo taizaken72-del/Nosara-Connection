@@ -606,8 +606,17 @@ function Home() {
 
       {/* FOOTER */}
       <footer className="py-12 px-6 border-t border-[#D5CABB]">
-        <div className="max-w-4xl mx-auto text-center">
-          <p className="text-sm text-[#7A7167] font-sans">
+        <div className="max-w-4xl mx-auto text-center flex flex-col items-center gap-3">
+          <div className="flex flex-col sm:flex-row items-center gap-4 text-sm font-sans text-[#2E2A24]">
+            <a href="mailto:ronslistnosara@gmail.com" className="hover:text-[#1A3320] transition-colors">
+              ronslistnosara@gmail.com
+            </a>
+            <span className="hidden sm:inline text-[#D5CABB]">·</span>
+            <a href="tel:+12132387286" className="hover:text-[#1A3320] transition-colors">
+              +1 213 238 7286
+            </a>
+          </div>
+          <p className="text-xs text-[#7A7167] font-sans">
             © 2025 Ron's List · Nosara, Costa Rica
           </p>
         </div>
