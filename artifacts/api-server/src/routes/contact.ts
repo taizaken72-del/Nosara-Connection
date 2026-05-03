@@ -43,7 +43,7 @@ contactRouter.post("/contact", async (req, res) => {
       ].join("\n"),
     });
 
-    req.log.info({ name, email }, "Contact form email sent");
+    req.log.info({ name, email, phone, timeline, needs }, "Contact form email sent");
     res.json({ success: true });
   } catch (err) {
     req.log.error({ err }, "Failed to send contact email");
