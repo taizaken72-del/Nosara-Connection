@@ -267,7 +267,7 @@ function Home() {
         <div
           className="absolute inset-0 z-0"
           style={{
-            backgroundImage: 'url("/hero-bg-watercolor.png")',
+            backgroundImage: 'url("/hero-bg-watercolor.jpg")',
             backgroundSize: "cover",
             backgroundPosition: "center center",
             backgroundRepeat: "no-repeat",
@@ -406,6 +406,8 @@ function Home() {
                   alt="Construction in Nosara"
                   className="w-full h-[380px] md:h-[460px] object-cover rounded-sm"
                   style={{ boxShadow: "0 4px 24px rgba(0,0,0,0.10)" }}
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
             </div>
@@ -495,6 +497,8 @@ function Home() {
                   alt="Nosara sunset surf"
                   className="w-full h-[420px] md:h-[500px] object-cover rounded-sm"
                   style={{ boxShadow: "0 4px 24px rgba(0,0,0,0.10)" }}
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               {/* Text */}
