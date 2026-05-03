@@ -532,7 +532,18 @@ function Home() {
                   Hiring the wrong people early on set our project back months and cost us far more than expected. If I had access to a trusted network like Ron's List from the start, we would have done things very differently.
                 </p>
                 <p className="text-sm uppercase tracking-widest text-[#7A7167]">
-                  — Homeowner in Nosara
+                  — Itai Algazi, Playa Pelada
+                </p>
+                <img
+                  src="/itai-home.jpg"
+                  alt="Itai Algazi's home in Playa Pelada"
+                  className="mt-6 w-full h-56 object-cover rounded-sm"
+                  style={{ boxShadow: "0 4px 20px rgba(0,0,0,0.10)" }}
+                  loading="lazy"
+                  decoding="async"
+                />
+                <p className="mt-2 text-xs text-[#7A7167] font-sans italic">
+                  Actual Project, Playa Pelada.
                 </p>
               </div>
             </div>
