@@ -419,13 +419,45 @@ function Home() {
             </p>
 
             {/* Community Verified Badge */}
-            <div className="mb-6 max-w-md">
-              <img
-                src="/community-verified-badge.jpeg"
-                alt="Community Verified — Built on real referrals from people who live here"
-                className="w-full rounded-xl"
-                style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.08)" }}
+            <div
+              className="mb-6 flex items-center gap-4 max-w-md w-full"
+              style={{
+                background: "#F5F0E8",
+                border: "1px solid #E0D8CC",
+                borderRadius: "14px",
+                padding: "14px 20px",
+                boxShadow: "0 2px 10px rgba(0,0,0,0.06)",
+              }}
+            >
+              <div
+                className="flex-shrink-0 flex items-center justify-center"
+                style={{
+                  width: "44px",
+                  height: "44px",
+                  borderRadius: "50%",
+                  backgroundColor: "#1A3320",
+                }}
+              >
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                  <path d="M5 11.5L9 15.5L17 7" stroke="white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </div>
+              <div
+                style={{
+                  width: "1px",
+                  height: "36px",
+                  backgroundColor: "#C8BFB0",
+                  flexShrink: 0,
+                }}
               />
+              <div>
+                <p className="font-sans font-bold tracking-widest" style={{ color: "#1A3320", fontSize: "0.78rem", letterSpacing: "0.12em" }}>
+                  COMMUNITY VERIFIED
+                </p>
+                <p className="font-sans font-light" style={{ color: "#5A5248", fontSize: "0.82rem", marginTop: "2px" }}>
+                  Built on real referrals from people who live here
+                </p>
+              </div>
             </div>
 
             {/* CTA Button */}
