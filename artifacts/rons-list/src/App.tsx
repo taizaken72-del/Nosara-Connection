@@ -522,6 +522,9 @@ function Home() {
                   loading="lazy"
                   decoding="async"
                 />
+                <p className="mt-2 text-xs text-[#7A7167] font-sans italic">
+                  Actual Project, North Guiones.
+                </p>
               </div>
               <div className="relative">
                 <span className="absolute -top-10 -left-6 text-8xl font-serif text-[#B8924A] opacity-40 leading-none">"</span>
