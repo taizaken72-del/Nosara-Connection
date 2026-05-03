@@ -425,7 +425,7 @@ function Home() {
                 background: "#F5F0E8",
                 border: "1px solid #E0D8CC",
                 borderRadius: "10px",
-                padding: "8px 16px",
+                padding: "8.2px 16.3px",
                 boxShadow: "0 2px 10px rgba(0,0,0,0.06)",
               }}
             >
