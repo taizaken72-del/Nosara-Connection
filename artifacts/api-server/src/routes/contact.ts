@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getUncachableResendClient } from "../lib/resend.js";
+import nodemailer from "nodemailer";
 
 const contactRouter = Router();
 
@@ -17,18 +17,31 @@ contactRouter.post("/contact", async (req, res) => {
     return;
   }
 
+  const appPassword = process.env.GMAIL_APP_PASSWORD;
+  if (!appPassword) {
+    req.log.error("GMAIL_APP_PASSWORD not set");
+    res.status(500).json({ error: "Email service not configured." });
+    return;
+  }
+
   try {
-    const { client, fromEmail } = await getUncachableResendClient();
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: "ronslistnosara@gmail.com",
+        pass: appPassword,
+      },
+    });
 
-    const from = fromEmail ?? "onboarding@resend.dev";
-    const needsList = Array.isArray(needs) && needs.length > 0
-      ? needs.map((n) => `• ${n}`).join("\n")
-      : "Not specified";
+    const needsList =
+      Array.isArray(needs) && needs.length > 0
+        ? needs.map((n) => `• ${n}`).join("\n")
+        : "Not specified";
 
-    await client.emails.send({
-      from,
+    await transporter.sendMail({
+      from: '"Ron\'s List" <ronslistnosara@gmail.com>',
       to: "ronslistnosara@gmail.com",
-      reply_to: email,
+      replyTo: email,
       subject: `New Inquiry from ${name} — Ron's List`,
       text: [
         `New contact form submission from Ron's List`,
