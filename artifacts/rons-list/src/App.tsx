@@ -6,7 +6,7 @@ import NotFound from "@/pages/not-found";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 
-const ROTATING_WORDS = ["Builder", "Architect", "Designer", "Contractor", "Project Manager"];
+const ROTATING_WORDS = ["Builder", "Contractor", "Architect", "Designer", "Property Manager"];
 
 function RotatingWord() {
   const [index, setIndex] = useState(0);
@@ -388,7 +388,7 @@ function Home() {
                 fontSize: "clamp(1.7rem, 4vw, 2.9rem)",
               }}
             >
-              The Most Expensive Mistake in Nosara? Hiring the Wrong Builder.
+              The Most Expensive Mistake in Nosara? Hiring the Wrong <RotatingWord />.
             </h1>
 
             {/* Gold divider */}
