@@ -388,7 +388,7 @@ function Home() {
                 fontSize: "clamp(1.7rem, 4vw, 2.9rem)",
               }}
             >
-              Hiring the Wrong <RotatingWord /> Is the Most Expensive Mistake in Nosara
+              The Most Expensive Mistake in Nosara? Hiring the Wrong Builder.
             </h1>
 
             {/* Gold divider */}
@@ -407,7 +407,7 @@ function Home() {
               className="font-sans font-light leading-relaxed mb-3 max-w-md"
               style={{ color: "#2E2A24", fontSize: "clamp(0.95rem, 1.8vw, 1.1rem)" }}
             >
-              The wrong professionals lead to delays, budget overruns, and serious stress.
+              The wrong professionals lead to delays, budget overruns, and decisions you can't undo.
             </p>
 
             {/* Supporting text */}
@@ -415,7 +415,7 @@ function Home() {
               className="font-sans font-light leading-relaxed mb-6 max-w-lg"
               style={{ color: "#2E2A24", fontSize: "clamp(0.95rem, 1.8vw, 1.1rem)" }}
             >
-              Ron's List connects you with trusted professionals across your entire project in Nosara—backed by <strong style={{ fontWeight: 600 }}>real experiences</strong> from the <strong style={{ fontWeight: 600 }}>local community.</strong>
+              Ron's List connects you with the professionals long-time Nosara residents quietly recommend—down to furniture and finishing touches.
             </p>
 
             {/* Community Verified Badge */}
