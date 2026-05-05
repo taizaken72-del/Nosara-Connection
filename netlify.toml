@@ -1,6 +1,6 @@
 [build]
   command   = "pnpm --filter @workspace/rons-list run build"
-  publish   = "artifacts/rons-list/dist/public"
+  publish   = "artifacts/rons-list/dist"
   functions = "netlify/functions"
 
 [build.environment]
