@@ -15,4 +15,15 @@ export default defineConfig({
     outDir: "dist/public",
     emptyOutDir: true,
   },
+  optimizeDeps: {
+    entries: ["src/**/*.{ts,tsx}"],
+  },
+  server: {
+    port: process.env.PORT ? parseInt(process.env.PORT) : 5173,
+    host: "0.0.0.0",
+    allowedHosts: true,
+    watch: {
+      ignored: ["**/dist/**"],
+    },
+  },
 });
