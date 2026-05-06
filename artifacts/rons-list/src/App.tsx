@@ -52,11 +52,18 @@ const inputStyle: React.CSSProperties = {
   transition: "border-color 0.2s",
 };
 
+const encodeFormData = (data: Record<string, string>) =>
+  Object.entries(data)
+    .map(([k, v]) => `${encodeURIComponent(k)}=${encodeURIComponent(v)}`)
+    .join("&");
+
 function ContactForm() {
   const [form, setForm] = useState({ name: "", email: "", phone: "" });
   const [needs, setNeeds] = useState<string[]>([]);
   const [timeline, setTimeline] = useState<string>("");
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -68,24 +75,25 @@ function ContactForm() {
     );
   };
 
-  const [submitting, setSubmitting] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitting(true);
     setError(null);
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch("/", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...form, needs, timeline }),
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encodeFormData({
+          "form-name": "contact",
+          ...form,
+          needs: needs.join(", "),
+          timeline,
+        }),
       });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error ?? "Something went wrong.");
+      if (!res.ok) throw new Error("Submission failed.");
       setSubmitted(true);
-    } catch (err: any) {
-      setError(err.message ?? "Failed to send. Please try again.");
+    } catch {
+      setError("Failed to send. Please try again.");
     } finally {
       setSubmitting(false);
     }
