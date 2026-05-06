@@ -52,7 +52,7 @@ const inputStyle: React.CSSProperties = {
   transition: "border-color 0.2s",
 };
 
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/xpwrwlgj";
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/mzdogapl";
 
 function ContactForm() {
   const [form, setForm] = useState({ name: "", email: "", phone: "" });
