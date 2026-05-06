@@ -52,10 +52,7 @@ const inputStyle: React.CSSProperties = {
   transition: "border-color 0.2s",
 };
 
-const encodeFormData = (data: Record<string, string>) =>
-  Object.entries(data)
-    .map(([k, v]) => `${encodeURIComponent(k)}=${encodeURIComponent(v)}`)
-    .join("&");
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xpwrwlgj";
 
 function ContactForm() {
   const [form, setForm] = useState({ name: "", email: "", phone: "" });
@@ -80,17 +77,20 @@ function ContactForm() {
     setSubmitting(true);
     setError(null);
     try {
-      const res = await fetch("/", {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encodeFormData({
-          "form-name": "contact",
-          ...form,
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          phone: form.phone,
           needs: needs.join(", "),
           timeline,
+          _subject: `New Ron's List inquiry from ${form.name}`,
         }),
       });
-      if (!res.ok) throw new Error("Submission failed.");
+      const data = await res.json();
+      if (!res.ok) throw new Error(data?.error ?? "Submission failed.");
       setSubmitted(true);
     } catch {
       setError("Failed to send. Please try again.");
