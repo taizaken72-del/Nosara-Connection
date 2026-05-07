@@ -197,15 +197,9 @@ function ContactForm() {
           })}
         </div>
       </div>
-      {error && (
-        <p className="text-center font-sans text-sm text-red-700 bg-red-50 border border-red-200 rounded-md py-3 px-4">
-          {error}
-        </p>
-      )}
       <button
         data-testid="button-submit"
         type="submit"
-        disabled={submitting}
         className="font-sans font-medium tracking-wide transition-all duration-300 hover:opacity-90 mt-2"
         style={{
           backgroundColor: "#1A3320",
@@ -214,12 +208,11 @@ function ContactForm() {
           padding: "16px 36px",
           fontSize: "1rem",
           border: "none",
-          cursor: submitting ? "not-allowed" : "pointer",
-          opacity: submitting ? 0.7 : 1,
+          cursor: "pointer",
           letterSpacing: "0.02em",
         }}
       >
-        {submitting ? "Sending…" : "Get Connected to Trusted Professionals"}
+        Get Connected to Trusted Professionals
       </button>
       <p className="text-center font-sans font-light text-[#7A7167] text-sm">
         <strong style={{ fontWeight: 600, color: "#5A5248" }}>No cost.</strong> No obligation. Just people you can trust.
