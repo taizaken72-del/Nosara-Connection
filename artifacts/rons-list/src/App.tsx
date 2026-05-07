@@ -5,7 +5,6 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
-import emailjs from "@emailjs/browser";
 
 const ROTATING_WORDS = ["Builder", "Contractor", "Architect", "Designer", "Property Manager"];
 
@@ -53,17 +52,11 @@ const inputStyle: React.CSSProperties = {
   transition: "border-color 0.2s",
 };
 
-const EJS_SERVICE  = import.meta.env.VITE_EMAILJS_SERVICE_ID  as string;
-const EJS_TEMPLATE = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string;
-const EJS_KEY      = import.meta.env.VITE_EMAILJS_PUBLIC_KEY  as string;
-
 function ContactForm() {
   const [form, setForm] = useState({ name: "", email: "", phone: "" });
   const [needs, setNeeds] = useState<string[]>([]);
   const [timeline, setTimeline] = useState<string>("");
   const [submitted, setSubmitted] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
-  const [error, setError] = useState<string | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -75,29 +68,14 @@ function ContactForm() {
     );
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitting(true);
-    setError(null);
-    try {
-      await emailjs.send(
-        EJS_SERVICE,
-        EJS_TEMPLATE,
-        {
-          from_name:  form.name,
-          from_email: form.email,
-          phone:      form.phone,
-          needs:      needs.join(", ") || "Not specified",
-          timeline:   timeline         || "Not specified",
-        },
-        EJS_KEY,
-      );
-      setSubmitted(true);
-    } catch {
-      setError("Failed to send. Please try again.");
-    } finally {
-      setSubmitting(false);
-    }
+    const subject = encodeURIComponent(`New Ron's List inquiry from ${form.name}`);
+    const body = encodeURIComponent(
+      `Name: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone || "Not provided"}\n\nNeeds: ${needs.join(", ") || "Not specified"}\nTimeline: ${timeline || "Not specified"}`
+    );
+    window.location.href = `mailto:ronslistnosara@gmail.com?subject=${subject}&body=${body}`;
+    setSubmitted(true);
   };
 
   if (submitted) {
